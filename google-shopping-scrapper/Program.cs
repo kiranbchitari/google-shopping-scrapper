@@ -11,15 +11,12 @@ namespace google_shopping_scrapper
 {
     class Program
     {
-        private async static void CheckChromiumFiles()
-        {
-            await new BrowserFetcher().DownloadAsync(BrowserFetcher.DefaultRevision);
-        }
-
         public static async Task Main(string[] args)
         {
-            CheckChromiumFiles();
-            var browser = await Puppeteer.LaunchAsync(new LaunchOptions { Headless = true });
+            var browser = await Puppeteer.LaunchAsync(new LaunchOptions {
+                Headless = false,
+                ExecutablePath = @"C:\Program Files\Google\Chrome\Application\chrome.exe" // Chrome.exe local Path 
+            });
             var page = await browser.NewPageAsync();
             await page.GoToAsync("https://www.google.com/search?q=printers&tbm=shop", WaitUntilNavigation.Load);
             string content = await page.GetContentAsync();
