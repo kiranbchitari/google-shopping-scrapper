@@ -9,6 +9,8 @@ namespace google_shopping_scrapper.Model
    public class Item
     {
         public string name { get; set; }
+        
+        public string imageUrl { get; set; }
 
         public string description { get; set; }
 
