@@ -54,6 +54,9 @@ namespace google_shopping_scrapper
                             {
                                 var name = doc3.DocumentNode.SelectNodes("(//span[@class='BvQan sh-t__title-pdp sh-t__title translate-content'])").FirstOrDefault();
                                 product.name = name.InnerHtml.ToString();
+                                var imageUrl = doc3.DocumentNode.SelectNodes("(//div[@class='Xkiaqc sm3F0e'])").FirstOrDefault();
+                                string imagesrc = imageUrl.InnerHtml.ToString();
+                                product.imageUrl = Regex.Match(imagesrc, "<img.+?src=[\"'](.+?)[\"'].*?>", RegexOptions.IgnoreCase).Groups[1].Value;
                                 try
                                 {
                                     var des = doc3.DocumentNode.SelectNodes("(//span[@class='sh-ds__full-txt translate-content'])").FirstOrDefault();
