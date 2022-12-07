@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace google_shopping_scrapper.Model
+﻿namespace google_shopping_scrapper.Model
 {
-   public class Item
+    public class Item
     {
-        public string name { get; set; }
-        
-        public string imageUrl { get; set; }
-
-        public string description { get; set; }
-
+        public string Name { get; set; }
+        public string Description { get; set; }
         public string ProductUrl { get; set; }
+        public string ImageUrl { get; set; }
     }
 }
